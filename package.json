@@ -4,6 +4,7 @@
   "description": "A Java parser written in JavaScript",
   "main": "index.js",
   "scripts": {
+    "prepublish": "node ./bin/build.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -18,5 +19,8 @@
   "homepage": "https://github.com/happibum/jp.js#readme",
   "dependencies": {
     "antlr4": "^4.5.2"
+  },
+  "devDependencies": {
+    "browserify": "^11.2.0"
   }
 }
