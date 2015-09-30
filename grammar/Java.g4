@@ -387,6 +387,10 @@ block
     :   '{' blockStatement* '}'
     ;
 
+blockStatements
+    :   blockStatement*
+    ;
+
 blockStatement
     :   localVariableDeclarationStatement
     |   statement
