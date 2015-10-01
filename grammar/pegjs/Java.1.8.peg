@@ -64,16 +64,16 @@ Compilation
 //-------------------------------------------------------------------------
 
 SUB = "\u001a" ;
-EOT = !_ ;
+EOT = !. ;
 
 //-------------------------------------------------------------------------
 //  JLS 3.6-7  Spacing
 //-------------------------------------------------------------------------
 
 Spacing
-    = ( [ \t\r\n\u000C]+  // WhiteSpace
-      / "/*" _*+ "*/"     // TraditionalComment
-      / "//" _*+ [\r\n]   // EndOfLineComment
+    = ( [ \t\r\n\u000C]+           // WhiteSpace
+      / "/*" (!"*/" .)* "*/"       // TraditionalComment
+      / "//" (![\r\n] .)* [\r\n]   // EndOfLineComment
       )* ;
 
 //-------------------------------------------------------------------------
@@ -301,7 +301,7 @@ BooleanLiteral
 //-------------------------------------------------------------------------
 
 CharLiteral
-    = "'" (Escape / !['\\\n\r] _) "'" Spacing            // this " keeps the editor happy
+    = "'" (Escape / !['\\\n\r] .) "'" Spacing            // this " keeps the editor happy
     ;
 
 //-------------------------------------------------------------------------
@@ -309,7 +309,7 @@ CharLiteral
 //-------------------------------------------------------------------------
 
 StringLiteral
-    = "\"" (Escape / !["\\\n\r] _)* "\"" Spacing         // this " keeps the editor happy
+    = "\"" (Escape / !["\\\n\r] .)* "\"" Spacing         // this " keeps the editor happy
     ;
 
 Escape
